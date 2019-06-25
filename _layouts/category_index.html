@@ -2,7 +2,9 @@
 layout: default
 ---
 
-{% for post in paginator.posts %}
+<h1>Posts From {{page.title}}</h1>
+
+{% for post in site.categories[page.category] %}
 <article class="post" role="article" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <ul>
@@ -22,7 +24,7 @@ layout: default
         {{ post.excerpt }}
 
         {% if post.excerpt != post.content %}
-            <p><a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}" role="button">Read More</a></p>
+            <p><a href="{{ post.url }}" role="button">Read More</a></p>
         {% endif %}
     </div>
 
@@ -45,18 +47,3 @@ layout: default
     </footer>
 </article>
 {% endfor %}
-
-{% if paginator.total_pages > 1 %}
-
-<div class="pagination{% if paginator.next_page == 2 %} next{% endif %}" role="navigation" aria-label="pagination">
-    {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path }}" class="previous">&larr; Previous</a>
-    {% endif %}
-
-    <span class="page_number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
-
-    {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path }}" class="next">Next &rarr;</a>
-    {% endif %}
-</div>
-{% endif %}

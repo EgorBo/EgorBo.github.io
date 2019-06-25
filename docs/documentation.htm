@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Steve - A minimal blog theme for Jekyll</title>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|PT+Sans+Narrow:400,700&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css' />
+<style type="text/css">
+	* { box-sizing: border-box; -moz-box-sizing: border-box; }
+	body { margin: 0; padding: 0 10px; min-width: 320px; background: #eee; }
+	.page { max-width: 700px; margin: 50px auto; padding: 40px; background: #fff; font: 15px/24px 'PT Sans', Arial, Tahoma, sans-serif; box-shadow: 3px 3px 3px rgba(0,0,0, 0.05); color: #666; }
+	.page h1 { color: #444; line-height: normal; margin: 0 0 10px; text-align: center; font: 700 40px/48px 'PT Sans Narrow', Arial, Tahoma, sans-serif; }
+	.page h1 + p { font-size: 20px; color: #999; font-style: italic; margin: 0 0 10px; text-align: center;  }
+	.page h1 + p + span { display: block; font-size: 14px; text-align: center; margin: 0 0 20px; padding: 0 0 30px; border-bottom: 1px solid #eee; }
+	.page h2 { font-size: 22px; color: #444; line-height: normal; margin: 40px 0 20px; padding: 30px 0 0; border-top: 1px solid #eee; }
+	.page h2:first-of-type { border: none; margin-top: 0; padding-top: 10px; }
+	.page strong { color: #444; }
+	.page ol li, .page ul li { margin: 6px 0 0; }
+	.page ol > li:first-of-type, .page ul > li:first-of-type { margin: 0; }
+	.page a { color: #dc5166; border-bottom: 1px solid; text-decoration: none; }
+	.page a:hover { color: #b7374b; border-bottom: none; }
+	.page pre { display: block; border: 1px solid #e3edf3; background: #F7FAFB; overflow: visible; overflow-y: hidden; padding: 0 8px; font-size: 13px; line-height: 20px; font-family: Inconsolata, monospace, sans-serif; white-space: pre; }
+	.page code { padding: 1px 5px; font-size: 13px; line-height: 20px; border: 1px solid #e3edf3; background: #F7FAFB; font-family: Inconsolata, monospace, sans-serif; white-space: pre; }
+</style>
+</head>
+<body>
+	<div class="page">
+		<h1>Steve</h1>
+		<p>A minimal blog theme for Jekyll</p>
+		<span>by <a href="http://joro.me">Georgi Kalaydzhiev</a></span>
+		
+		<h2>Installation</h2>
+		<p>I assume you have already downloaded and installed Ruby. Here's what you need to do next:</p>
+		<ol>
+			<li>Run <code>gem install jekyll bundler</code>.</li>
+			<li>Copy the theme in your desired folder.</li>
+			<li>Enter into the folder by executing <code>cd name-of-the-folder</code>.</li>
+			<li>Run <code>bundle install</code>.</li>
+			<li>If you want to access and customize the theme, use <code>bundle exec jekyll serve</code>. This way it will be accessible on <code>http://localhost:4000</code>.</li>
+			<li>Upload the content of the compiled <code>_site</code> folder on your host server.</li>
+		</ol>
+
+		<h2>Configuration &amp; First Steps</h2>
+		<p>All configuration options are in the <code>_config.yml</code> file.</p>
+		
+		
+		<p><strong>General Settings</strong></p>
+		<ul>
+			<li><strong>name</strong>: Your name.</li>
+			<li><strong>job_title</strong>: Your job title.</li>
+			<li><strong>email</strong>: Your email. There are two cases where email is used. First, if you entered the email and you've activated <strong>show_email</strong> option the end result will be a visible social email icon in the sidebar. The second use of your email is when you do not set your own avatar. In this case your email is used by the gravatar plugin to automatically fetch your gravatar.</li>
+			<li><strong>description</strong>: Describe yourself with a couple of words.</li>
+			<li><strong>avatar</strong>: Write down the full path to the avatar <code>http://mysite.com/blog/assets/images/avatar.jpg</code>. If you comment this row, "Steve" checks if you have an email and shows your gravatar if you have any.</li>
+			<li><strong>favicon</strong>: Want a favicon? Enter the full path here. For example <code>http://mysite.com/blog/assets/favicon.ico</code>.</li>
+			<li><strong>twitter_handler</strong>: Add your Twitter username without the @. It will be used for <a href="https://dev.twitter.com/cards/overview" target="_blank">Twitter Cards</a>. The default card type for "Steve" is <a href="https://dev.twitter.com/cards/types/summary-large-image" target="_blank">Summary Card with Large Image</a>.</li>
+			<li><strong>analytics_code</strong>: Add your Google Analytics Tracking ID. Example ID: *UA-XXXXXXX-2*.</li>
+			<li><strong>disqus</strong>: Add your website shortname from Disqus.</li>
+		</ul>
+		
+		<p><strong>Important Note:</strong> Keep in mind that <strong>name</strong>, <strong>job_title</strong>, <strong>twitter_handler</strong> and some of the post specific variables are used as default meta data in some cases.</p>
+		
+		<p><strong>Social Accounts</strong></p>
+		<ul>
+			<li><strong>social_networks</strong>: Here you can find the list of all the available social networks that you can currently use. Of course you can always add a new one by yourself or ask for it to be available in the next version of the theme. If you don't want a specific social network to be seen, just leave the url value empty or delete the line.</li>
+		</ul>
+		
+		<p><strong>Important:</strong> Do not change the names of the social networks!</p>
+		
+		<p><strong>Modules Settings</strong></p>
+		
+		<p>One thing to remember - 1 is <strong>on</strong>, 0 is <strong>off</strong>.</p>
+		<ul>
+			<li><strong>show_categories</strong>: If it is on and you've added categories in the post itself the categories will be visible. If it is off and you've added categories in the post they will be hidden. This option is helpful if you want to turn on/off categories for all your posts at once.</li>
+			<li><strong>show_tags</strong>: If it is on and you've added tags in the post itself the tags will be visible. If it is off and you've added tags in the post they will be hidden.  This option is helpful if you want to turn on/off tags for all your posts at once.</li>
+			<li><strong>show_email</strong>: If this is turned on and you've entered an email value in <strong>email</strong>, an email icon will appear next to your social media accounts and all your readers will be able to contact you. </li>
+			<li><strong>show_rss</strong>: If this is turned on, a new RSS button will appear in the sidebar next to your social media accounts.</li>
+			<li><strong>show_comments</strong>: If it is on and you've added <code>comments: true</code> in the post itself the comments will be visible. If it is off and you've added <code>comments: true</code> in the post the comments will be hidden. This option is helpful if you want to turn on/off comments for all your posts at once.</li>
+			<li><strong>show_menu</strong>: If it is on the main menu will be visible.</li>
+			<li><strong>fixed_sidebar</strong>: If it is on the sidebar will be fixed (sticky).</li>
+		</ul>
+		
+		<p><strong>Defaults</strong></p>
+		<ul>
+			<li><strong>defaults</strong>: The only available option at the moment is whether to enable the comments automatically in the post or not. The default value is <code>true</code>.</li>
+		</ul>
+		
+		<p><strong>Serving</strong></p>
+		<p>These options are pretty important, so take a closer look. If you experience any problems with your paths you should check them here.</p>
+		
+		<ul>
+			<li><strong>url</strong>: Enter your domain! Example: <code>https://mysite.com</code></li>
+			<li><strong>baseurl</strong>: The baseurl can remain empty if you're not going to host your site in a subfolder. But if you want your site to be something like <code>htttp://mysite.com/blog</code> you should write down <code>/blog</code> here.</li>
+		</ul>
+
+		<p><strong>Includes</strong></p>
+		<ul>
+			<li><strong>include</strong>: Force the inclusion of the pages directory.</li>
+		</ul>
+
+		<p><strong>Outputting</strong></p>
+		<ul>
+			<li><strong>permalink</strong>: By default your links will look like this <code>http://mysite.com/categories/post-name.html</code>. If you want a different permalink check <a href="https://jekyllrb.com/docs/permalinks/" target="_blank">Jekyll documentation</a>.</li>
+			<li><strong>category_dir</strong>: The default directory is <code>categories</code>, so for example if you go to random category index you will see something like this <code>http://mysite.com/categories/category-name/postname.html</code>.</li>
+		</ul>
+		
+		<p><strong>Pagination</strong></p>
+		<ul>
+			<li><strong>paginate</strong>: You should enter a number that stands for the number of posts per page.</li>
+			<li><strong>paginate_path</strong>: The default path is <code>/page:num/</code>, so for example if you go to second page you will see something like this <code>http://mysite.com/page2/</code>.</li>
+		</ul>
+		<p><strong>Important Note:</strong> Pagination is currently working only on home page due to Jekyll limitations.</p>
+		
+		<p><strong>Conversion</strong></p>
+		<ul>
+			<li><strong>markdown</strong>: Choose your Markdown renderer. Different Markdown renderers supported by Jekyll sometimes have extra options available. I suggest to stick with the default.</li>
+			<li><strong>excerpt_separator</strong> By default when you're writing a post, you should add <code>&lt;!--more--&gt;</code> to define excerpt. You have three options - to leave it as is, to change the tag or to completely remove it but in this case you'll always see the full content.</li>
+		</ul>
+		
+		<p><strong>Assets Settings</strong></p>
+		<ul>
+			<li><strong>sass</strong> Choose the path to all of yours SCSS partials and the compression method for the final file.</li>
+		</ul>
+		<p>If you need extra help, just check out the <a href="https://jekyllrb.com/docs/home/" target="_blank">official Jekyll documentation</a>.</p>
+		
+		<p><strong>Additional Configuration</strong></p>
+		
+		<ul>
+			<li>
+				<p><strong>How to change your default theme color?</strong></p>
+				<p>Just go to <code>/assets/partials/_vars.scss</code> and change the color of the <code>$primary-color</code> variable.</p>
+			</li>
+			<li>
+				<p><strong>How Facebook knows which image to use for sharing?</strong></p>
+				<p>By default the script gets the first image in the post so take that in mind when you write a blog post.</p>
+			</li>
+		</ul>
+		
+		<p><strong>Adding Post</strong></p>
+		
+		<p>The next thing after you are done with the configuration file is to add your first post. You will need to have at least basic knowledge of HTML or Markdown.</p>
+		<p>All you need to do is to create a new file with name <code>YYYY-MM-DD-my-first-post</code> and <code>.markdown</code> or <code>.md</code> extension. Create it in the <code>_posts</code> folder. By default the name of the file is composed by date and title but you can overwrite these in the post's front matter.</p>
+		<p>In the beginning of the every post you have a so called <a href="https://jekyllrb.com/docs/frontmatter/" target="_blank">front matter</a> block which contains some data about the post. Here is the short description of the options.</p>
+		
+		<p><strong>layout</strong>: The post layout.</p>
+
+		<p><strong>date</strong>: Exact date when the post is published. The date is actually pretty important and I suggest you never change it. Specific date helps Jekyll to order correctly all the posts. Also, the date is used to generate a unique ID, so Disqus can always get the right comments for the right post, even when you change the title.</p>
+
+		<p><strong>title</strong>: Post's title.</p>
+
+		<p><strong>description</strong>: Meta description used for better SEO.</p>
+
+		<p><strong>comments</strong>: By default they are always <code>true</code>, but if you want to turn them off for a specific post just set this to <code>false</code>.</p>
+
+		<p><strong>category</strong>: List the categories in which you want your post to appear.</p>
+
+		<p><strong>tags</strong>: List your tags here.</p>
+
+		<p><strong>Adding Page</strong></p>
+
+		<p>Adding page is even simpler than adding post. Just create a sub-folder to the pages directory and inside that sub-folder create index.md file. The folder name is your page name. Every folder must contain index file. Pages are also using front matter to add information to your page.</p>
+
+		<p><strong>layout</strong>: The page layout.</p>
+
+		<p><strong>title</strong>: Page's title.</p>
+
+		<p><strong>permalink</strong>: This is important. If you do not enter the permalink, your url will be something like this <code>http://example.com/_pages/about</code>. Enter the permalink and get rid of <code>/_pages/</code> part. Do not forget the trailing slash!</p>
+
+		<p>That's it! Do not hesitate to ask if you have any questions. Also you can send me feature requests. There are some nice features that are planed for the upcoming versions. Happy blogging!</p>
+	</div>
+</body>
+</html>

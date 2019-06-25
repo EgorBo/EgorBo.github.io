@@ -2,7 +2,7 @@
 name: Egor Bogatov
 job_title: Software Engineer
 description: I work at Microsoft on .NET (Mono)
-avatar: https://habrastorage.org/webt/53/ku/xb/53kuxbzgwfnq1r2qw0vkpsp4-sk.jpeg
+avatar: /ava.png
 favicon: /favicon.ico
 twitter_handler: egorbo
 analytics_code: UA-XXXXXXX-2
@@ -12,6 +12,7 @@ disqus: egorbo
 social_networks:
 -  { name: twitter, url: 'http://twitter.com/EgorBo' }
 -  { name: github, url: 'http://github.com/EgorBo' }
+-  { name: linkedin, url: 'http://linkedin.com' }
 
 # Modules Settings
 show_categories: 1

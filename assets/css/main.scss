@@ -5,7 +5,7 @@
 
 .wrapper { max-width: $default-width; margin: 0 auto; padding: 34px 20px; }
 
-.user-profile { position: absolute; top: 35px; width: 100%; max-width: 200px; text-align: center; @include transition(right .3s ease-in-out);
+.user-profile { position: absolute; top: 35px; width: 100%; max-width: 215px; text-align: center; @include transition(right .3s ease-in-out);
 	&.fixed { position: fixed; }
 	.compact-header {
 		.avatar { display: block; margin: 0 auto 25px;
@@ -13,7 +13,7 @@
 			img { max-width: 140px; max-height: 140px; border-radius: 50%; @include transition(opacity .1s ease); }
 		}
 		.my-info {
-			.my-name { display: block; font-size: 24px; font-weight: 700; line-height: 30px; color: $grey-color-dark; }
+			.my-name { display: block; font-size: 24px; font-weight: 700; line-height: 40px; color: $grey-color-dark; }
 			.my-job-title { font-size: 14px; font-weight: 300; margin: 5px 0 0; }
 		}
 	}

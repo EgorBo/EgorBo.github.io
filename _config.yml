@@ -1,23 +1,22 @@
 # General Settings
-name: Steve Austin
-job_title: UI/UX Engineer
-email: youremail@gmail.com
-description: I build great products at Google, currently Google Maps. I also enjoy capturing moments with my camera and discovering new music. Follow me Twitter or drop me a line.
-avatar: https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg
+name: Egor Bogatov
+job_title: Software Engineer
+email: egorbo@gmail.com
+description: I work at Microsoft on .NET (Mono)
+avatar: https://habrastorage.org/webt/pp/n3/m_/ppn3m__xk6dxnmny08m-ffvocvs.jpeg
 favicon: /favicon.ico
-twitter_handler: your_handler
+twitter_handler: egorbo
 analytics_code: UA-XXXXXXX-2
 disqus: your_disqus_site
 
 # Social Accounts
 social_networks:
--  { name: facebook, url: 'http://facebook.com' }
 -  { name: twitter, url: 'http://twitter.com' }
 -  { name: instagram, url: '' }
 -  { name: google-plus, url: '' }
 -  { name: linkedin, url: '' }
 -  { name: skype, url: '' }
--  { name: github, url: '' }
+-  { name: github, url: 'http://github.com/EgorBo' }
 -  { name: codepen, url: '' }
 -  { name: stack-overflow, url: '' }
 -  { name: dribbble, url: '' }

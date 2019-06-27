@@ -77,19 +77,19 @@
 
 		.post-header {
 			ul { @include flexbox(); margin: 0 0 6px;
-				li { position: relative; margin: 0 0 0 10px; padding: 0 0 0 12px; text-transform: uppercase; font-size: 12px; letter-spacing: 0.06em; color: $grey-color-light;
+				li { position: relative; margin: 0 0 0 10px; padding: 0 0 0 12px; text-transform: uppercase; font-size: 12px; letter-spacing: 0.06em; color: $grey-color-light2;
 					&:first-of-type { margin: 0; padding: 0;
 						&:before { content: none; }
 					}
-					&:before { position: absolute; top: 50%; left: 0; width: 3px; height: 3px; border-radius: 50%; background: $grey-color-lighter; content: ""; @include translate(0, -50%); }
-					&.cats a { color: $grey-color-light; border-bottom: 1px solid transparent; @include transition(all .1s ease);
+					&:before { position: absolute; top: 50%; left: 0; width: 3px; height: 3px; border-radius: 50%; background: $grey-color-lighter2; content: ""; @include translate(0, -50%); }
+					&.cats a { color: $grey-color-light2; border-bottom: 1px solid transparent; @include transition(all .1s ease);
 						&:last-of-type:after { content: none; }
 						&:after { content: ","; }
 						&:hover { color: $primary-color; border-bottom: 1px solid $primary-color; }
 					}
 				}
 			}
-			h1, h2 { font-size: 30px; font-weight: 900; margin: 0 0 20px; color: $grey-color-dark;
+			h1, h2 { font-size: 24px; font-weight: 700; margin: 9px 0 12px; color: $grey-color-dark;
 				a { color: $grey-color-dark; @include transition(color .1s ease);
 					&:hover { color: $primary-color; }
 				}

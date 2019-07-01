@@ -40,8 +40,8 @@ Now let's take a look at what the compilers output:
 {% highlight nasm linenos %}
 Test(int, int, int):
   mov eax, edi
-  sub eax, esi   ; -
-  imul eax, edx  ; *
+  sub eax, esi   ; -         
+  imul eax, edx  ; *         
   ret
 {% endhighlight %}
 	<figcaption>C++ (Clang, GCC, MSVC)</figcaption>
@@ -49,7 +49,7 @@ Test(int, int, int):
 
 <figure class="alignleft">
 {% highlight nasm linenos %}
-C.Test(Int32, Int32, Int32)
+C.Test(Int32, Int32, Int32)  
   mov eax, edx
   imul eax, r9d  ; *
   imul r8d, r9d  ; *
@@ -223,15 +223,26 @@ X > -1  =>  X >= 0
     
 And what do you think about these ones?:
 {% highlight cpp linenos %}
-pow(x, 0.5)   =>  sqrt(x)
+pow(X, 0.5)   =>  sqrt(x)
 pow(X, 0.25)  =>  sqrt(sqrt(X))
-
+pow(X, 2)     =>  X * X     ; 1 mul
+pow(X, 3)     =>  X * X * X ; 2 mul
 {% endhighlight %}
+
 <p/>
 <figure class="aligncenter">
 	<img src="/images/instcombine/p9.png" />
 </figure>
 
+<br/>
+How many `mul` are needed to perform `pow(X, 4)` or `X * X * X * X`?
+<figure class="aligncenter">
+	<img src="/images/instcombine/pow4.png" />
+</figure>
+Just 2! Just like for `pow(X, 3)` and unlike `pow(X, 3)` we don't even use the `xmm1` register.
+
+
+<br/>
 Modern CPUs support a special FMA instruction to perform `mul` and `add` in just one step without an intermediate rounding operation for `mul`:
 
 {% highlight cpp linenos %}
@@ -242,6 +253,7 @@ X * Y + Z  =>  fmadd(X, Y, Z)
 	<img src="/images/instcombine/p11.png" />
 </figure>
 
+<br/>
 Sometimes compilers are able to replace entire algorithms with just one CPU instruction, e.g.:
 <figure class="aligncenter">
 	<img src="/images/instcombine/p12.png" />
@@ -342,7 +354,7 @@ There are also some in `lowering.cpp` (machine-dependent ones) but in general Ry
 for the following pattern:
 
 {% highlight cpp linenos %}
-cos(X^2) + sin(X^2) equals to 1 
+cos^2(X) + sin^2(X) equals to 1 
 {% endhighlight %}
   
 

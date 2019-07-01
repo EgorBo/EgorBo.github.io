@@ -357,7 +357,7 @@ for the following pattern:
 cos^2(X) + sin^2(X) equals to 1 
 {% endhighlight %}
 
-Any volontures to try, just for fun, to make that DSL to produce RuyJIT code? 😆
+Any volunteers to try, just for fun, to make that DSL to produce RuyJIT code? 😆
 
 ### Links
 * ["Future Directions for Optimizing Compilers"](https://arxiv.org/pdf/1809.02161.pdf) by Nuno P. Lopes and John Regehr  

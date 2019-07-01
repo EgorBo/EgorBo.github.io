@@ -16,7 +16,7 @@ tags:
 > "Performance gains due to improvements in compiler optimizations will double   
 > the speed of a program every 18 years" © [Proebsting’s Law](http://proebsting.cs.arizona.edu/law.html)
 
-When we solve equations we try to simplify them first, e.g. `Y = -(5 - X)` can be simplified to just  `Y = X - 5`. In modern compilers it's called "Peephole Optimizations". Roughly speaking, compilers search for certain patterns and replace them with corresponding simplified expressions. In this blog post I'll list some of them which I found in LLVM, GCC and .NET Core (CoreCLR) sources.
+When we solve equations, we try to simplify them first, e.g. `Y = -(5 - X)` can be simplified to just  `Y = X - 5`. In modern compilers it's called "Peephole Optimizations". Roughly speaking, compilers search for certain patterns and replace them with corresponding simplified expressions. In this blog post I'll list some of them which I found in LLVM, GCC and .NET Core (CoreCLR) sources.
 
 Let's start with simple cases:
 
@@ -120,7 +120,7 @@ And that's true, e.g.: `4 == 8 - 4`. Any odd number for C (C usually means a con
 
 ### Optimizations vs IEEE754
 
-Lots of this type of optimizations work for different data types, e.g. `byte`, `int`, `unsigned`, `float`. The latter is a bit tricky e.g you can't simplify `A - B - A` to `-B` for floats/doubles, even `(A * B) * C` is not equal to `A * (B * C)` due to the [IEEE754 specification](https://en.wikipedia.org/wiki/IEEE_754). However, C++ compilers have a special flag to let the optimizers be less strict around IEEE754, NaN and other FP corner cases and just apply all of the optimizations - it's usually called "Fast Math" (`-ffast-math` for clang and gcc, `/fp:fast` for MSVC). Btw, here you can find my feature request for .NET Core to introduce the "Fast Math" mode there: [dotnet/coreclr#24784](https://github.com/dotnet/coreclr/issues/24784)).
+Lots of this type of optimizations work for different data types, e.g. `byte`, `int`, `unsigned`, `float`. The latter is a bit tricky e.g. you can't simplify `A - B - A` to `-B` for floats/doubles, even `(A * B) * C` is not equal to `A * (B * C)` due to the [IEEE754 specification](https://en.wikipedia.org/wiki/IEEE_754). However, C++ compilers have a special flag to let the optimizers be less strict around IEEE754, NaN and other FP corner cases and just apply all of the optimizations - it's usually called "Fast Math" (`-ffast-math` for clang and gcc, `/fp:fast` for MSVC). Btw, here you can find my feature request for .NET Core to introduce the "Fast Math" mode there: [dotnet/coreclr#24784](https://github.com/dotnet/coreclr/issues/24784)).
 
 As you can see, two `vsubss` were eliminated in the `-ffast-math` mode:
 <figure class="aligncenter">
@@ -291,7 +291,7 @@ int Foo2(int a, int b)
 }
 {% endhighlight %}
 
-The optimizer still recognizes the pattern and simplifies it by removing redundant (from its point of view) `0 - a` and `0 - b` operations. But we do need them! We save them to the global variables! Thus it leads to this:
+The optimizer still recognizes the pattern and simplifies it by removing redundant (from its point of view) `0 - a` and `0 - b` operations. But we do need them! We save them to the global variables! Thus, it leads to this:
   
 {% highlight llvm linenos %}
 define dso_local i32 @_Z4Foo2ii(i32, i32)

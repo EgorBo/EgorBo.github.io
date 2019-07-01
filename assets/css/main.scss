@@ -17,7 +17,7 @@
 			.my-job-title { font-size: 14px; font-weight: 300; margin: 5px 0 0; }
 		}
 	}
-	.mainmenu { margin: 40px 0; text-align: center;
+	.mainmenu { margin: 32px 0; text-align: center;
 		a { display: block; max-width: 200px; margin: 0 auto; padding: 15px 0; border: 1px solid $grey-color-lightest; border-top: none; background: $white; box-shadow: 0 2px 3px rgba($black,.05); @include transition(all .1s ease);
 			&:hover, &.active { background: darken($white, 1%); box-shadow: 0 2px 3px rgba($black,.05), inset 4px 0 0 $primary-color; }
 			&:first-of-type { border-top: 1px solid $grey-color-lightest; }

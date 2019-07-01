@@ -9,8 +9,6 @@ permalink: "/resume/"
 
 
 I'm a software developer with **11** years of experience in commercial software development.  
-I'm interested in mobile applications, game development and micro-optimizations.
-
 
 ### Experience 
 

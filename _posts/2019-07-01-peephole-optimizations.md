@@ -30,8 +30,7 @@ Let's start with simple cases:
 and check the 4th one in C++ and C# compilers:
 
 {% highlight csharp linenos %}
-int Test(int x, int y, int z)
-{
+int Test(int x, int y, int z) {
     return x * z - y * z;       //  =>  z * (x - y)
 }
 {% endhighlight %}
@@ -257,8 +256,7 @@ I borrowed a nice example for the second issue from ["Future Directions for Opti
 Imagine we have a function:
 
 {% highlight c linenos %}
-int Foo1(int a, int b)
-{
+int Foo1(int a, int b) {
    int na = -a;
    int nb = -b;
    return na + nb;
@@ -268,8 +266,7 @@ int Foo1(int a, int b)
 We need to perform 3 operations here: `0 - a`, `0 - b`, и `na + nb`. LLVM simplifies it to just two operations: `return -(a + b)` - what a smart move, here is the IR:
 
 {% highlight llvm linenos %}
-define dso_local i32 @_Z4Foo1ii(i32, i32)
-{
+define dso_local i32 @_Z4Foo1ii(i32, i32) {
   %3 = add i32 %0, %1 ; a + b
   %4 = sub i32 0, %3  ; 0 - %3
   ret i32 %4
@@ -281,8 +278,7 @@ Now imagine that we need to store values of `na` and `nb` in some global variabl
 {% highlight c linenos %}
 int x, y;
 
-int Foo2(int a, int b)
-{
+int Foo2(int a, int b) {
    int na = -a;
    int nb = -b;
    x = na;
@@ -294,8 +290,7 @@ int Foo2(int a, int b)
 The optimizer still recognizes the pattern and simplifies it by removing redundant (from its point of view) `0 - a` and `0 - b` operations. But we do need them! We save them to the global variables! Thus, it leads to this:
   
 {% highlight llvm linenos %}
-define dso_local i32 @_Z4Foo2ii(i32, i32)
-{
+define dso_local i32 @_Z4Foo2ii(i32, i32) {
   %3 = sub nsw i32 0, %0                    ; 0 - a 
   %4 = sub nsw i32 0, %1                    ; 0 - b
   store i32 %3, i32* @x, align 4, !tbaa !2  

@@ -1,8 +1,7 @@
-.highlight { background: #fff; border: 1px solid $grey-color-lightest; padding: 3px;
-	.lineno { padding: 0 15px 0 0; }
+.highlight { background: #fff; border: 1px solid $grey-color-lightest; padding: 1px;
+	.lineno { padding: 0 15px 0 0; color: rgb(214, 214, 214); }
 	.highlighter-rouge & { background: #eef; }
 	.c     { color: #998; font-style: italic } // Comment
-	.err   { color: #a61717; background-color: #e3d2d2 } // Error
 	.k     { font-weight: bold } // Keyword
 	.o     { font-weight: bold } // Operator
 	.cm    { color: #998; font-style: italic } // Comment.Multiline

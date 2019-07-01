@@ -1,7 +1,7 @@
 # General Settings
 name: Egor Bogatov
 job_title: Developer at Microsoft
-description: C#, C++, performance
+description: 
 avatar: /ava.png
 favicon: /favicon.ico
 twitter_handler: egorbo
@@ -12,7 +12,6 @@ disqus: egorbo
 social_networks:
 -  { name: twitter, url: 'http://twitter.com/EgorBo' }
 -  { name: github, url: 'http://github.com/EgorBo' }
--  { name: linkedin, url: 'https://www.linkedin.com/in/egorbo/' }
 
 # Modules Settings
 show_categories: 1

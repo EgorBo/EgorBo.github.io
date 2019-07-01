@@ -3,9 +3,9 @@
 
 @import "vars", "reset", "mixins";
 
-.wrapper { max-width: $default-width; margin: 0 auto; padding: 34px 20px; }
+.wrapper { max-width: $default-width; margin: 0 auto; padding: 34px 20px;}
 
-.user-profile { position: absolute; top: 35px; width: 100%; max-width: 200px; text-align: center; @include transition(right .3s ease-in-out);
+.user-profile { position: absolute; top: 35px; width: 100%; max-width: 170px; text-align: center; @include transition(right .3s ease-in-out);
 	&.fixed { position: fixed; }
 	.compact-header {
 		.avatar { display: block; margin: 0 auto 25px;
@@ -50,7 +50,7 @@
 	}
 }
 
-.the-content { margin-left: 244px;
+.the-content { margin-left: 169px;
 	& > h1 { text-transform: uppercase; color: $grey-color-light; letter-spacing: 0.1em; font-size: 12px; font-weight: 400; margin: 0 0 20px; text-align: center; }
 	.search { position: relative; margin: 0 0 20px; border: 1px solid $grey-color-lightest; background: $white; box-shadow: 0 2px 3px rgba($black,.05), inset 6px 0 0 $grey-color-lightest; @include placeholder($grey-color-lighter, italic);
 		& > div { @include flexbox(); overflow: hidden;

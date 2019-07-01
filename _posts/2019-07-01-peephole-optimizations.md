@@ -363,5 +363,6 @@ cos^2(X) + sin^2(X) equals to 1
 * ["How LLVM Optimizes a Function"](https://blog.regehr.org/archives/1603) by John Regehr  
 * ["The surprising cleverness of modern compilers"](https://lemire.me/blog/2016/05/23/the-surprising-cleverness-of-modern-compilers/) by Daniel Lemire
 * ["Adding peephole optimization to GCC"](https://medium.com/@prathamesh1615/adding-peephole-optimization-to-gcc-89c329dd27b3) by Prathamesh Kulkarni
-* [C++, C# and Unity](https://lucasmeijer.com/posts/cpp_unity/) by Lucas Meijer
-* ["Modern" C++ Lamentations](https://aras-p.info/blog/2018/12/28/Modern-C-Lamentations/) by Aras Pranckevičius
+* ["C++, C# and Unity"](https://lucasmeijer.com/posts/cpp_unity/) by Lucas Meijer
+* ["Modern" C++ Lamentations"](https://aras-p.info/blog/2018/12/28/Modern-C-Lamentations/) by Aras Pranckevičius
+* ["Provably Correct Peephole Optimizations with Alive"](http://www.cs.utah.edu/~regehr/papers/pldi15.pdf) by Nuno P. Lopes, David Menendez, Santosh Nagarakatte and John Regehr

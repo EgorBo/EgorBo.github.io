@@ -324,7 +324,7 @@ RuyJIT doesn't have this optimization so the code contains only 3 operations :-)
 
 ### Do we really need these optimizations?
 Well, you never know what the final code will look like after inlining, constant folding, copy propagation, CSE, etc.  
-Also, both LLVM IR and .NET IL are not tied to a specific programming language and can't rely on quality of the IR it generates. And you can just run your app/lib with `InstCombine` pass on and off to measure the performance impact ;-).
+Also, both LLVM IR and .NET IL are not tied to a specific programming language and can't rely on quality of the IR it generates. And you can just run your app/lib with `InstCombine` pass on and off to measure the performance impact.
 
 ### What about C#?
 As I said earlier, peephole optimizations are very limited in C# at the moment. However, when I say "C#" I mean the most popular C# runtime - CoreCLR with RuyJIT. But there are more, including those, using LLVM as a backend: Mono (see my [tweet](https://twitter.com/EgorBo/status/1063468884257316865)), Unity Burst and LILLC - these runtimes basically use exactly the same optimizations as clang does. Unity guys are even considering [replacing C++ with C#](https://lucasmeijer.com/posts/cpp_unity/) in their internal parts. By the way, since .NET 5 will include Mono as an optional built-in runtime - you will be able to use LLVM power for such cases.

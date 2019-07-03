@@ -13,8 +13,8 @@
 			img { max-width: 120px; max-height: 120px; border-radius: 50%; @include transition(opacity .1s ease); }
 		}
 		.my-info {
-			.my-name { display: block; font-size: 24px; font-weight: 700; line-height: 40px; color: $grey-color-dark; }
-			.my-job-title { font-size: 14px; font-weight: 300; margin: 5px 0 0; }
+			.my-name { display: block; font-size: 22px; font-weight: 700; line-height: 40px; color: $grey-color-dark; }
+			.my-job-title { font-size: 12px; font-weight: 300; margin: 5px 0 0; color: $grey-color-light; }
 		}
 	}
 	.mainmenu { margin: 32px 0; text-align: center;
@@ -77,7 +77,7 @@
 
 		.post-header {
 			ul { @include flexbox(); margin: 0 0 6px;
-				li { position: relative; margin: 0 0 0 10px; padding: 0 0 0 12px; text-transform: uppercase; font-size: 12px; letter-spacing: 0.06em; color: $grey-color-light2;
+				li { position: relative; margin: 0 0 0 10px; padding: 0 0 0 12px; text-transform: uppercase; font-size: 12px; letter-spacing: 0.06em; color: $grey-color-light;
 					&:first-of-type { margin: 0; padding: 0;
 						&:before { content: none; }
 					}

@@ -116,7 +116,9 @@ foreach (char c in new [] { ';','/',':','@','&','=','+','$',',' })
 and our bitmap becomes:
 {% highlight csharp linenos %}
 00010010110000000000100110000101
+   |  | ||          |  ||    | |
    @  = ;:          /  ,+    & $
+  
 {% endhighlight %}
 or
 {% highlight csharp linenos %}

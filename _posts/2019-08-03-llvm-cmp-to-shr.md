@@ -20,16 +20,15 @@ So let's say we have a function that checks if a char belongs to a list of reser
 {% highlight csharp linenos %}
 bool IsReservedCharacter(char character) // uint16_t
 {
-    return (character == ';')
-           || (character == '/')
-           || (character == ':')
-           || (character == '@')
-           || (character == '&')
-           || (character == '=')
-           || (character == '+')
-           || (character == '$')
-           || (character == ',')
-        ;
+    return character == ';'
+        || character == '/'
+        || character == ':'
+        || character == '@'
+        || character == '&'
+        || character == '='
+        || character == '+'
+        || character == '$'
+        || character == ',';
 }
 {% endhighlight %}
 Now let's compare RuyJIT and LLVM:

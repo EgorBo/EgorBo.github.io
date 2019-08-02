@@ -34,8 +34,57 @@ bool IsReservedCharacter(char character) // uint16_t
 {% endhighlight %}
 Now let's compare RuyJIT and LLVM:
 <!--more-->
+
+<figure class="alignleft">
+{% highlight nasm linenos %}
+; C# RuyJIT
+  movzx    rax, cx
+  cmp      eax, 59
+  je       SHORT G_M40423_IG04
+  cmp      eax, 47
+  je       SHORT G_M40423_IG04
+  cmp      eax, 58
+  je       SHORT G_M40423_IG04
+  cmp      eax, 64
+  je       SHORT G_M40423_IG04
+  cmp      eax, 38
+  je       SHORT G_M40423_IG04
+  cmp      eax, 61
+  je       SHORT G_M40423_IG04
+  cmp      eax, 43
+  je       SHORT G_M40423_IG04
+  cmp      eax, 36
+  je       SHORT G_M40423_IG04  
+  cmp      eax, 44
+  sete     al
+  movzx    rax, al
+G_M40423_IG03:
+  ret      
+G_M40423_IG04:
+  mov      eax, 1
+G_M40423_IG05:
+  ret
+{% endhighlight %}
+</figure>
+
+<figure class="alignleft">
+{% highlight nasm linenos %}
+; LLVM
+  add edi, -36
+  cmp di, 28
+  ja .LBB0_2
+  mov al, 1
+  movzx ecx, di
+  mov edx, 314575237        
+  bt rdx, rcx
+  jae .LBB0_2
+  ret
+.LBB0_2:
+  xor eax, eax
+  ret
+{% endhighlight %}
+</figure>
 <figure class="aligncenter">
-	<img src="/images/9cmp/p1.png" />
 </figure>
 
 As you can see C# generated a pretty simple set of 9 cmp + jumps. LLVM generated something strange with magic numbers and just two branches. Let's try to convert (disassemble) LLVM's output to C#:

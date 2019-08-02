@@ -13,7 +13,7 @@ tags:
 - optimizations
 ---
 
-Sometime I explore LLVM sources and play with godbolt.org in order to find interesting optimizations (not only the peephole ones) so I think I'll post some here in my blog time to time. 
+Sometimes I explore LLVM sources and play with godbolt.org in order to find interesting optimizations (not only the peephole ones) so I think I'll post some here in my blog time to time. 
 
 So let's say we have a function that checks if a char belongs to a list of reserved chars:  
 (I actually copy-pasted it from CoreFX)
@@ -58,7 +58,7 @@ First we need to convert chars to their ASCII numbers:
 
 So the biggest is '@' (64) and the smallest is '$' (36). So the range starts from 36 and the length is `64 - 36 = 28`. Here is how I explained the first two magic numbers. Now it's 314575237's turn:
 
-Since the range is known we need to encode it to a special bit-map (a set of 0 and 1) - a 32/64 bit integer .
+Since the range is known and the length=28 easily fits into a 32/64bit CPU register we can encode it to a special bit-map (a set of 0 and 1) - a 32/64 bit integer (depending on a platform).
 Here is how it's done:
 {% highlight csharp linenos %}
 long bitmap = 0;
@@ -92,5 +92,5 @@ The results are:
 | CountReserverCharacters_new |  78.92 ns | 0.0735 ns | 0.0652 ns |  1.00 |
 {% endhighlight %}
 
-So the improved version is 28% faster.  
+So the improved version is 28% faster!  
 Here is a feature request for RuyJIT to implement it there: https://github.com/dotnet/coreclr/issues/12477

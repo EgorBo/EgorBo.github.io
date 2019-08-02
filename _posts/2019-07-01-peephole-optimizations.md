@@ -60,7 +60,7 @@ C.Test(Int32, Int32, Int32)
 </figure>
 <figure class="aligncenter">
 </figure>
-
+<!--more-->
 All three C++ compilers have just one `imul` instruction. C# (.NET Core) has two because it has a very limited set of available peephole optimizations and I'll list some of them later. Be sure to note, the entire InstCombine transformation implementation, where peephole optimizations live, in LLVM takes more than 30K lines of code (+20k LOC in DAGCombiner.cpp). By the way, [here is the piece of code in LLVM](https://github.com/llvm-mirror/llvm/blob/45adfa50b3fddb97d7fc512cec80e48c551f3280/lib/Transforms/InstCombine/InstCombineAddSub.cpp#L1329-L1332) responsible for the pattern we are inspecting now. GCC has a special DSL which describes all peephole optimizations, and [here is the piece of that DSL](https://github.com/gcc-mirror/gcc/blob/5882c51592109e2e228d3c675792f891a09b43d6/gcc/match.pd#L2185-L2220) for our case.  
   
 I decided, just for this blog post, to try to implement this optimization for C# in JIT (hold my beer 😛):

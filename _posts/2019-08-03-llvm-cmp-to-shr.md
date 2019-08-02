@@ -94,3 +94,6 @@ The results are:
 
 So the improved version is 28% faster!  
 Here is a feature request for RuyJIT to implement it there: https://github.com/dotnet/coreclr/issues/12477
+
+LLVM's opt: https://godbolt.org/z/2B-00V (canonize to switch)
+LLVM's llc: https://godbolt.org/z/JSBhgh (DAG*)

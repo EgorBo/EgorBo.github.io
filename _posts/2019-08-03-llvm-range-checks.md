@@ -13,9 +13,15 @@ tags:
 - optimizations
 ---
 
-Sometimes when I am bored I explore LLVM sources and play with godbolt.org in order to find interesting optimizations (not only the peephole ones) so I think I'll post some here in my blog time to time. 
+Sometimes when I am bored, I explore LLVM sources and play with godbolt.org in order to find interesting optimizations (not only the peephole ones) so I think I'll post some here in my blog time to time. Also, if an optimization is simple enough I try to implement it in RuyJIT, e.g.:
 
-So let's say we have a function that checks if a char belongs to a list of reserved chars:  
+* [dotnet/coreclr#25912](https://github.com/dotnet/coreclr/pull/25912) Remove bound checks when index is Byte and array.Length >= 256
+* [dotnet/coreclr#25744](https://github.com/dotnet/coreclr/pull/25744) Transform X % C == 0 to X & (C-1) == 0
+* [dotnet/coreclr#25856](https://github.com/dotnet/coreclr/pull/25856) Recognize FMA patterns (x*y+z) 
+* [dotnet/coreclr#24584](https://github.com/dotnet/coreclr/pull/24584) Replace (val / 2) with (val * 0.5)
+* [dotnet/coreclr#25458](https://github.com/dotnet/coreclr/pull/25458) Optimize u>=1 to u!=0 and u<1 to u==0
+
+So, let's say we have a function that checks if a char belongs to a list of reserved chars:  
 (I actually copy-pasted it from CoreFX)
 {% highlight csharp linenos %}
 bool IsReservedCharacter(char character) // uint16_t
@@ -105,7 +111,7 @@ First, we need to convert chars to their ASCII numbers:
 59  47  58  64  38  61  43  36  44
 {% endhighlight %}
 
-The biggest is `@` (64) and the smallest is `$` (36). So the range starts from 36 and the length is `64 - 36 = 28`. Thus the first `if` simply ignores all values outside of `[36..64]` range. Here is how I explained the first two magic numbers. Now it's `314575237`s turn:
+The biggest is `@` (64) and the smallest is `$` (36). So, the range starts from 36 and the length is `64 - 36 = 28`. Thus the first `if` simply ignores all values outside of `[36..64]` range. Here is how I explained the first two magic numbers. Now it's `314575237`s turn:
 
 Since the range is known and the length is 28 which easily fits into a 32/64bit CPU register we can encode it to a special bit-map (a set of 0 and 1) - a 32/64 bit integer (depending on a platform).
 Here is how it's done:
@@ -114,7 +120,7 @@ long bitmap = 0;
 foreach (char c in new [] { ';','/',':','@','&','=','+','$',',' })
     bitmap |= 1L << c - 36;
 {% endhighlight %}
-So for each char we push (shift) `1` to the left according to `c - 36` value (as you remember 36 stands for `$` so it's index will be zero - on the right)  
+So, for each char we push (shift) `1` to the left according to `c - 36` value (as you remember 36 stands for `$` so it's index will be zero - on the right)  
 and our bitmap becomes:
 {% highlight csharp linenos %}
   
@@ -143,7 +149,7 @@ The results are:
 | CountReserverCharacters_new |  78.92 ns | 0.0735 ns | 0.0652 ns |  1.00 |
 {% endhighlight %}
 
-So the improved version is **28%** faster!
+The improved version is **28%** faster!
   
 Feature request for RuyJIT [dotnet/coreclr#12477](https://github.com/dotnet/coreclr/issues/12477)
 

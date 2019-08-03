@@ -145,7 +145,7 @@ The results are:
 
 So the improved version is **28%** faster!
   
-Feature request for RuyJIT https://github.com/dotnet/coreclr/issues/12477
+Feature request for RuyJIT [dotnet/coreclr#12477](https://github.com/dotnet/coreclr/issues/12477)
 
-LLVM opt: https://godbolt.org/z/2B-00V (convert to switch)  
-LLVM llc: https://godbolt.org/z/JSBhgh (DAG*)  
+LLVM opt: [godbolt.org](https://godbolt.org/z/2B-00V) (convert to switch)  
+LLVM llc: [godbolt.org](https://godbolt.org/z/JSBhgh) (DAG*)  

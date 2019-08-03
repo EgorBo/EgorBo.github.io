@@ -334,7 +334,7 @@ Back to CoreCLR - here are the peephole optimizations I managed to find in the `
 *(&X)  =>  X
 X % 1  => 0
 X / 1  =>  X
-X % Y  => X - (X / Y) * Y
+X % Y  => X - (X / Y) * Y  // arm
 X ^ -1  =>  ~x
 X >= 1  =>  X > 0 
 X <  1  =>  X <= 0
@@ -356,8 +356,6 @@ for the following pattern:
 {% highlight cpp linenos %}
 cos^2(X) + sin^2(X) equals to 1 
 {% endhighlight %}
-
-Any volunteers to try, just for fun, to make that DSL to produce RuyJIT code? 😆
 
 ### Links
 * ["Future Directions for Optimizing Compilers"](https://arxiv.org/pdf/1809.02161.pdf) by Nuno P. Lopes and John Regehr  

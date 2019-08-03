@@ -3,7 +3,7 @@ layout: post
 date: 2019-08-03 10:00 AM
 title: "Smart LLVM #1: Optimizing range checks"
 description: 
-comments: true
+comments: false
 category: 
 -
 tags:

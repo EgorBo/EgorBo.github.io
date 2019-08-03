@@ -136,7 +136,7 @@ Now when we do `314575237 >> (c - 36)` we either get `1` (symbol is one of the r
 
 Let's benchmark it! I have a random string here and I need to calculate how many symbols are reserved:
 {% highlight csharp linenos %}
-string str = "123_)()&*(^^@@$%!*&*()@*(%(+)@_+*(&^%$?><LOP{end";
+string str = "Some link https://github.com/dotnet/coreclr/issues/12477, some@mail.com.";
 int count = 0;
 foreach (char c in str)
     if (IsReservedCharacter(c))
@@ -147,11 +147,11 @@ The results are:
 {% highlight csharp linenos %}
 |                      Method |      Mean |     Error |    StdDev | Ratio |
 |---------------------------- |----------:|----------:|----------:|------:|
-| CountReserverCharacters_old | 100.83 ns | 0.0422 ns | 0.0352 ns |  1.28 |
-| CountReserverCharacters_new |  78.92 ns | 0.0735 ns | 0.0652 ns |  1.00 |
+| CountReserverCharacters_old |  197.6 ns | 0.0422 ns | 0.0352 ns |  1.43 |
+| CountReserverCharacters_new |  138.4 ns | 0.0735 ns | 0.0652 ns |  1.00 |
 {% endhighlight %}
 
-The improved version is **28%** faster!
+The improved version is **43%** faster!
   
 Feature request for RuyJIT [dotnet/coreclr#12477](https://github.com/dotnet/coreclr/issues/12477)
 

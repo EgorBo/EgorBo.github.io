@@ -65,11 +65,11 @@ Now let's compare outputs for RuyJIT and LLVM:
   cmp      eax, 44
   sete     al
   movzx    rax, al
-G_M40423_IG03:
+G_IG03:
   ret      
 G_IG04:
   mov      eax, 1
-G_M40423_IG05:
+G_IG05:
   ret
 {% endhighlight %}
 </figure>
@@ -122,7 +122,7 @@ long bitmap = 0;
 foreach (char c in new [] { ';','/',':','@','&','=','+','$',',' })
     bitmap |= 1L << c - 36;
 {% endhighlight %}
-So, for each char we push (shift) `1` to the left according to `c - 36` value (as you remember 36 stands for `$` so it's index will be zero - on the right)  
+So, for each char we push (shift) `1` to the left according to `c - 36` value (as you remember 36 stands for `$` so its index will be zero - on the right)  
 and our bitmap becomes:
 {% highlight csharp linenos %}
   
@@ -151,7 +151,7 @@ The results are:
 | CountReserverCharacters_new |  138.4 ns | 0.0735 ns | 0.0652 ns |  1.00 |
 {% endhighlight %}
 
-The improved version is **43%** faster!
+The improved version is **43%** faster! (Core i7 8700K)
   
 Feature request for RuyJIT [dotnet/coreclr#12477](https://github.com/dotnet/coreclr/issues/12477)
 

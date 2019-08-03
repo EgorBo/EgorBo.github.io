@@ -19,9 +19,10 @@ Sometimes I explore LLVM sources and play with godbolt.org in order to find some
 * [dotnet/coreclr#25744](https://github.com/dotnet/coreclr/pull/25744) Transform X % C == 0 to X & (C-1) == 0
 * [dotnet/coreclr#25856](https://github.com/dotnet/coreclr/pull/25856) Recognize FMA patterns (x*y+z) 
 * [dotnet/coreclr#24584](https://github.com/dotnet/coreclr/pull/24584) Replace (val / 2) with (val * 0.5)
-* [dotnet/coreclr#25458](https://github.com/dotnet/coreclr/pull/25458) Optimize u>=1 to u!=0 and u<1 to u==0
-(As you can see the CoreCLR developers are quite friendly and help a lot to understand things better)
+* [dotnet/coreclr#25458](https://github.com/dotnet/coreclr/pull/25458) Optimize u>=1 to u!=0 and u<1 to u==0  
+As you can see the CoreCLR developers are quite friendly and help a lot to understand things better.
 
+Today I am going to share a nice LLVM trick to optimize some common range checks.  
 So, let's say we have a function that checks if a char belongs to a list of reserved chars:  
 (I actually copy-pasted it from CoreFX)
 {% highlight csharp linenos %}

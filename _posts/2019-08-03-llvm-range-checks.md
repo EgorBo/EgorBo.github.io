@@ -104,7 +104,7 @@ First we need to convert chars to their ASCII numbers:
 59  47  58  64  38  61  43  36  44
 {% endhighlight %}
 
-So the biggest is '@' (64) and the smallest is '$' (36). So the range starts from 36 and the length is `64 - 36 = 28`. Here is how I explained the first two magic numbers. Now it's 314575237's turn:
+So the biggest is `@` (64) and the smallest is `$` (36). So the range starts from 36 and the length is `64 - 36 = 28`. Here is how I explained the first two magic numbers. Now it's `314575237`s turn:
 
 Since the range is known and the length=28 easily fits into a 32/64bit CPU register we can encode it to a special bit-map (a set of 0 and 1) - a 32/64 bit integer (depending on a platform).
 Here is how it's done:
@@ -139,8 +139,9 @@ The results are:
 | CountReserverCharacters_new |  78.92 ns | 0.0735 ns | 0.0652 ns |  1.00 |
 {% endhighlight %}
 
-So the improved version is 28% faster!  
-Here is a feature request for RuyJIT to implement it there: https://github.com/dotnet/coreclr/issues/12477
+So the improved version is **28%** faster!  
+  
+Feature request for RuyJIT https://github.com/dotnet/coreclr/issues/12477
 
 LLVM opt: https://godbolt.org/z/2B-00V (convert to switch)  
 LLVM llc: https://godbolt.org/z/JSBhgh (DAG*)  

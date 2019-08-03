@@ -115,14 +115,10 @@ foreach (char c in new [] { ';','/',':','@','&','=','+','$',',' })
 {% endhighlight %}
 and our bitmap becomes:
 {% highlight csharp linenos %}
-00010010110000000000100110000101
+00010010110000000000100110000101 = 314575237
    |  | ||          |  ||    | |
    @  = ;:          /  ,+    & $
   
-{% endhighlight %}
-or
-{% highlight csharp linenos %}
-314575237
 {% endhighlight %}
 
 Let's benchmark it! I have a random string and I need to calculate how many symbols are reserved:
@@ -145,5 +141,6 @@ The results are:
 So the improved version is 28% faster!  
 Here is a feature request for RuyJIT to implement it there: https://github.com/dotnet/coreclr/issues/12477
 
-LLVM's opt: https://godbolt.org/z/2B-00V (canonize to switch)
-LLVM's llc: https://godbolt.org/z/JSBhgh (DAG*)
+C++ to LLVM IR:
+LLVM's opt: https://godbolt.org/z/2B-00V (canonize to switch)  
+LLVM's llc: https://godbolt.org/z/JSBhgh (DAG*)  

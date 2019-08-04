@@ -3,7 +3,7 @@
 
 @import "vars", "reset", "mixins";
 
-.wrapper { max-width: $default-width; margin: 0 auto; padding: 34px 20px;}
+.wrapper { max-width: $default-width; min-width: $default-width; margin: 0 auto; padding: 34px 20px;}
 
 .user-profile { position: absolute; top: 35px; width: 100%; max-width: 170px; text-align: center; @include transition(right .3s ease-in-out);
 	&.fixed { position: fixed; }

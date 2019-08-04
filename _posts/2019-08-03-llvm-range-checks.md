@@ -82,7 +82,7 @@ G_IG05:
   ja .LBB0_2
   mov al, 1
   movzx ecx, di
-  mov edx, 314575237   
+  mov edx, 314575237    
   bt rdx, rcx
   jae .LBB0_2
   ret
@@ -119,7 +119,7 @@ Since the range is known and the length is 28 which easily fits into a 32/64bit 
 Here is how it's done:
 {% highlight csharp linenos %}
 long bitmap = 0;
-foreach (char c in new [] { ';','/',':','@','&','=','+','$',',' })
+foreach (char c in new [] { ';', '/', ':', '@', '&', '=', '+', '$', ',' })
     bitmap |= 1L << c - 36;
 {% endhighlight %}
 So, for each char we push (shift) `1` to the left according to `c - 36` value (as you remember 36 stands for `$` so its index will be zero - on the right)  
@@ -145,10 +145,10 @@ foreach (char c in str)
 
 The results are:
 {% highlight csharp linenos %}
-|                      Method |      Mean |     Error |    StdDev | Ratio |
-|---------------------------- |----------:|----------:|----------:|------:|
-| CountReserverCharacters_old |  197.6 ns | 0.0422 ns | 0.0352 ns |  1.43 |
-| CountReserverCharacters_new |  138.4 ns | 0.0735 ns | 0.0652 ns |  1.00 |
+|                      Method |      Mean | Ratio |
+|---------------------------- |----------:|------:|
+| CountReserverCharacters_old |  197.6 ns |  1.43 |
+| CountReserverCharacters_new |  138.4 ns |  1.00 |
 {% endhighlight %}
 
 The improved version is **43%** faster! (Core i7 8700K)

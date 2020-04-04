@@ -86,4 +86,18 @@ You basically __strongly__ advice the jit to inline a method but it should be us
 It's not currently supported, see this issue: [https://github.com/dotnet/runtime/issues/34500](https://github.com/dotnet/runtime/issues/34500)<br/>
 But if you think this can significantly optimize your code leave a comment there.
 
-There are a lot of other limitations, you can find some of them here: [https://github.com/dotnet/runtime/blob/master/src/coreclr/src/jit/inline.def](https://github.com/dotnet/runtime/blob/master/src/coreclr/src/jit/inline.def). Also, I recommend you to read Andy Ayers's thoughts about inliner's design: [https://github.com/dotnet/runtime/issues/34286#issuecomment-606186300](https://github.com/dotnet/runtime/issues/34286#issuecomment-606186300) and his "["Some Notes on Using Machine Learning to Develop Inlining Heuristics"](https://github.com/AndyAyersMS/PerformanceExplorer/blob/master/notes/notes-aug-2016.md)" article.
+#### My attempt to make a heuristic
+I tried to extend the existing heuristics in order to help the following case:
+<figure>
+	<img src="/images/inline/strlen.png"/>
+</figure>
+A few months ago I [added](https://github.com/dotnet/runtime/pull/1378) an optimization to RyuJIT for `"const str".Length` to be replaced with a constant. So here ^ if we inline
+`Validate` into `Test` we'll have `if ("hello".Length > 10)` and it will be optimized to just `if (5 > 10)` and the whole
+branch including `throw new` will be eliminated. But unfortunately in this case JIT refuses to inline:
+<figure>
+	<img src="/images/inline/strlen2.png"/>
+</figure>
+And the main problem here is the fact that Jit doesn't know we are going optimize `get_Length` and the inliner should aslo 
+have a sort of `constant string feeds get_Length, multiplier is increased to ..` observation. Here is my attempt to add it [https://github.com/EgorBo/runtime-1/commit/3810c2146f7db9deb9f75f486cd2ccb3cc50a620](https://github.com/EgorBo/runtime-1/commit/3810c2146f7db9deb9f75f486cd2ccb3cc50a620): The only problem here we don't have time to resolve all `callvirt` CIL instructions to find out if it's `System.String.get_Length` or not (see Andy's [comment](https://github.com/dotnet/runtime/issues/33338#issuecomment-596153086)).
+
+There are a lot of other limitations, you can find some of them [here](https://github.com/dotnet/runtime/blob/master/src/coreclr/src/jit/inline.def). Also, I recommend you to read Andy Ayers's [thoughts](https://github.com/dotnet/runtime/issues/34286#issuecomment-606186300) about inliner's design in general and his ["Some Notes on Using Machine Learning to Develop Inlining Heuristics"](https://github.com/AndyAyersMS/PerformanceExplorer/blob/master/notes/notes-aug-2016.md) article.

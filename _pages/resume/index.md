@@ -4,17 +4,18 @@ title:  "About"
 permalink: "/resume/"
 ---
 **Name:** Egor Bogatov  
-**Age:** 30 yo  
+**Age:** 31 yo  
 **Location:** Minsk, Belarus  
 
 
-I'm a software developer with **11** years of experience in commercial software development.  
+I'm a software developer with **12** years of experience in commercial software development.  
+Interested in micro-optimizations, LLVM, mobile and game development.
 
 ### Experience 
 
 <figure class="alignright">2016 - now</figure>
 **Microsoft**  
-Currently working on .NET 5 (Mono). Also, I contribute to [CoreCLR](https://github.com/dotnet/coreclr/pulls?utf8=%E2%9C%93&q=author%3AEgorBo+) and [CoreFX](https://github.com/dotnet/corefx/pulls?utf8=%E2%9C%93&q=author%3AEgorBo+).
+Currently working on .NET 5 (Mono Runtime). Also, I contribute to CoreCLR and CoreFX.
 
 ---
 

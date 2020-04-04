@@ -4,7 +4,7 @@ h1, h2, h3, h4, h5, h6 { line-height: normal; margin: 0; }
 dl, dt, dd, ul { margin: 0; padding: 0; list-style: none; }
 ol { margin: 0; padding: 0 0 0 20px; }
 form, input, textarea, select { font: 400 16px/16px $mfont, 'Roboto', Arial, sans-serif; margin: 0; padding: 0; resize: none; }
-img { max-width: 100%; width: 100%; margin: 0 auto; height: auto; display: block; border: 0; }
+img { max-width: 100%; margin: 0 auto; border: 0; }
 a { text-decoration: none; color: $grey-color-normal; }
 p { margin: 0; }
 input:focus, textarea:focus, select:focus { outline: none; }

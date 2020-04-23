@@ -38,6 +38,7 @@ Well... no, it's not possible to do in a reasonable time. Jit only makes a few g
 <br/>
 
 We can see it in Disasmo (JitDump log):
+<!--more-->
 
 <figure>
 	<img src="/images/inline/bm.png" />

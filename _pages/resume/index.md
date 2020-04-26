@@ -9,13 +9,13 @@ permalink: "/resume/"
 
 
 I'm a software developer with **12** years of experience in commercial software development.  
-Interested in micro-optimizations, LLVM, mobile and game development.
+Micro-optimizations, LLVM, mobile and game development.
 
 ### Experience 
 
 <figure class="alignright">2016 - now</figure>
 **Microsoft**  
-Senior Software Engineer  
+**Senior Software Engineer**  
 I work on Mono Runtime, iOS/Android integration, optimizations, and I contribute 
 to both JIT compilers: Mono-LLVM and CoreCLR RyuJIT.
 
@@ -23,7 +23,7 @@ to both JIT compilers: Mono-LLVM and CoreCLR RyuJIT.
 
 <figure class="alignright">2015 - 2016</figure>
 **Xamarin**  
-Software Engineer  
+**Software Engineer**  
 Worked on [UrhoSharp](https://github.com/xamarin/urho) game engine and Mono BCL.
 
 ---
@@ -38,27 +38,27 @@ Some screenshots can be found [here](https://hsto.org/webt/9z/ao/ul/9zaoulr5o4xr
 
 <figure class="alignright">2013 - 2014</figure>
 **Playtika**  
-Senior Software Engineer  
+**Senior Software Engineer**  
 2D mobiles games for iOS and Android using Xamarin and a custom game engine.
 
 ---
 
 <figure class="alignright">2012 - 2013</figure>
 **Viber**  
-Software Engineer  
+**Software Engineer**  
 Windows Phone client for Viber messenger.
 
 ---
 
 <figure class="alignright">2010 - 2012</figure>
 **ScienceSoft Inc.**  
-Software Engineer  
+**Software Engineer**  
 Boring enterprise stuff: Entity Framework, WPF, DDD, etc.
 
 ---
 
 <figure class="alignright">2008 - 2010</figure>
 **iDoc.ru**  
-Software Engineer  
+**Software Engineer**  
 Boring enterprise stuff: WinForms, SQL, etc.
 

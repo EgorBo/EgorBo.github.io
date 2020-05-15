@@ -115,7 +115,7 @@ the optimization there and explain:
 
 <img src="/images/llvm-opt/instcombine.png" />
 
-Here we visit a binary node `FMul` with `Op0` and `Op1` sub-nodes and we just need to match the pattern we want via `match`. In our case we want both to be `pow` intrinsics. It looks super simple and in those InstCombine*.cpp files you can find plenty of similar peephole optimizations. Now when we press the Run button we can see the resulting IR:
+Here we visit a binary node `FMul` with `Op0` and `Op1` sub-nodes and we just need to match the pattern we want via `match`. In our case we want both to be `pow` intrinsics. It looks super simple and in those InstCombine*.cpp files you can find plenty of similar peephole optimizations. A bit more complicated case is my PR to LLVM: [reviews.llvm.org/D79369](https://reviews.llvm.org/D79369). Now when we press the Run button we can see the resulting IR:
 
 <img src="/images/llvm-opt/result.png" />
 

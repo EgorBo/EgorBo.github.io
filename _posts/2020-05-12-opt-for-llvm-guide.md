@@ -20,7 +20,7 @@ tags:
 	<figcaption>High-level architecture for C++ AOT scenario.</figcaption>
 </figure>
 
-`opt` is a console application, it accepts LLVM IR and optimizes it using a loop of analysis and transformation phases (produces optimized LLVM IR as an output). Then `llc` (a console app as well) emits machine code/assembly. `opt` is basically a PassManager with some generic (actually, C/C++-friendly) order of optimization passes. Other languages or JIT-compilers should use their own order of passes. Thus, when we introduce a new optimization in LLVM we improve many programming languages at once! E.g. Rust, Swift, C, C++, C# (Mono and Burst) - all of them use LLVM as a primary back-end. I asume you're familiar with some LLVM IR basics such as SSA-form, and If you're not I highly recommend watching/reading these:
+`opt` is a console application, it accepts LLVM IR and optimizes it using a loop of analysis and transformation phases (produces optimized LLVM IR as an output). Then `llc` (a console app as well) emits machine code/assembly. `opt` is basically a PassManager with some generic (actually, C/C++-friendly) order of optimization passes. Other languages or JIT-compilers should use their own order of passes. Thus, when we introduce a new optimization in LLVM we improve many programming languages at once! E.g. Rust, Swift, C, C++, C# (Mono and Burst) - all of them use LLVM as a primary back-end. I assume you're familiar with some LLVM IR basics such as SSA-form, and If you're not I highly recommend watching/reading these:
 
 - [LLVM IR Tutorial (2019 EuroLLVM)](https://www.youtube.com/watch?v=m8G_S5LwlTo)
 - [How Clangs compiles a function](https://blog.regehr.org/archives/1605)
@@ -50,7 +50,7 @@ We need to get the LLVM IR clang emits for it first. It can be easily obtained v
 	<img src="/images/llvm-opt/ir1.png" />
 </figure>
 
-Most of the `math.h` functions have thier built-in LLVM intrinsics. E.g. see [my PR](https://github.com/mono/mono/pull/16578) for Mono where I 
+Most of the `math.h` functions have their built-in LLVM intrinsics. E.g. see [my PR](https://github.com/mono/mono/pull/16578) for Mono where I 
 tell LLVM our `Math.XY()` methods should be LLVM-intrinsics in order to get such optimizations for free.
 We, obviously, need somehow transform the IR like this:
 
@@ -97,7 +97,7 @@ define double @Test(double %x, double %a, double %b) {
 
 declare double @llvm.pow.f64(double, double)
 {% endhighlight %}
-I mentioned `opt` console app several times and actally you can find it in the solution. We are going to use it as an entry-point app
+I mentioned `opt` console app several times and actually you can find it in the solution. We are going to use it as an entry-point app
 where we pass a path to our test and ask InstCombine to run our peepholes. You need to find that `opt` project and modify its properties like this:
 
 <img src="/images/llvm-opt/opt-props-win.png" />
@@ -148,5 +148,6 @@ For reference, [here is how](https://github.com/gcc-mirror/gcc/blob/master/gcc/m
 Let me know (e.g. on [twitter](https://twitter.com/EgorBo)) if you want me to do the same step-by-step tutorial for RyuJIT and C#.
 
 ### Links
+* ["LLVM IR Tutorial (2019 EuroLLVM)"](https://www.youtube.com/watch?v=m8G_S5LwlTo)
 * ["How LLVM Optimizes a Function"](https://blog.regehr.org/archives/1603) by John Regehr  
 * ["Adding peephole optimization to GCC"](https://medium.com/@prathamesh1615/adding-peephole-optimization-to-gcc-89c329dd27b3) by Prathamesh Kulkarni

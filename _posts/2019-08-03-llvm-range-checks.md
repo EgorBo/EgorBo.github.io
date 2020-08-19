@@ -13,16 +13,8 @@ tags:
 - optimizations
 ---
 
-Sometimes I explore LLVM sources and play with godbolt.org in order to find some interesting optimizations (not only the peephole ones) so I think I'll post some here in my blog from time to time. Also, if an optimization is simple enough I try to implement it in RuyJIT, e.g.:
-
-* [dotnet/coreclr#25912](https://github.com/dotnet/coreclr/pull/25912) Remove bound checks when index is Byte and array.Length >= 256
-* [dotnet/coreclr#26000](https://github.com/dotnet/coreclr/pull/26000) "constant_string".Length to const int
-* [dotnet/coreclr#25744](https://github.com/dotnet/coreclr/pull/25744) Transform X % C == 0 to X & (C-1) == 0
-* [dotnet/coreclr#25856](https://github.com/dotnet/coreclr/pull/25856) Recognize FMA patterns (x*y+z) 
-* [dotnet/coreclr#24584](https://github.com/dotnet/coreclr/pull/24584) Replace (val / 2) with (val * 0.5)
-* [dotnet/coreclr#25458](https://github.com/dotnet/coreclr/pull/25458) Optimize u>=1 to u!=0 and u<1 to u==0  
-  
-Today I am going to share a nice LLVM trick to optimize some common range checks.  
+Sometimes I explore LLVM sources and play with godbolt.org in order to find some interesting optimizations (not only the peephole ones) so I think I'll post some here in my blog from time to time. Also, if an optimization is simple enough I try to implement it in RuyJIT.  
+And today I am going to share a nice LLVM trick to optimize some common range checks.  
 So, let's say we have a function that checks if a char belongs to a list of reserved chars:  
 (I actually copy-pasted it from CoreFX)
 {% highlight csharp linenos %}

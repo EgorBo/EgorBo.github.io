@@ -20,19 +20,14 @@ I work on Mono Runtime, iOS/Android/WebAssembly integrations, optimizations, and
 to both JIT compilers: Mono-LLVM and CoreCLR RyuJIT.  
 Some of my RyuJIT contributions can be found [here](https://twitter.com/EgorBo/status/1283024716647858176).
 
----
-
-<figure class="alignright">2015 - 2016</figure>
-**Xamarin**  
-**Software Engineer**  
-Worked on [UrhoSharp](https://github.com/xamarin/urho) game engine and Mono BCL.
+Joined Xamarin in 2015 it was aquired by Microsoft a year after. Worked on [UrhoSharp](https://github.com/xamarin/urho) game engine and Mono BCL.
 
 ---
 
 <figure class="alignright">2014 - 2015</figure>
-**Freelance, pet projects**  
+**Freelance and pet projects**  
 Java, C++, gamedev. 
-Also, I had my own mobile game with over one million downloads.
+Also, I developed a mobile game with over one million downloads.
 Some screenshots can be found [here](https://hsto.org/webt/9z/ao/ul/9zaoulr5o4xrraozhhowwkyc3kq.png).
 
 ---
@@ -51,17 +46,9 @@ Windows Phone and Windows 8 clients for Viber messenger.
 
 ---
 
-<figure class="alignright">2010 - 2012</figure>
-**ScienceSoft Inc.**  
+<figure class="alignright">2008 - 2012</figure>
 **Software Engineer**  
-Boring enterprise stuff: Entity Framework, WPF, DDD, etc.
-
----
-
-<figure class="alignright">2008 - 2010</figure>
-**iDoc.ru**  
-**Software Engineer**  
-Boring enterprise stuff: WinForms, SQL, etc.
+Boring enterprise stuff: SQL, EF, WCF, DDD, WPF, WinForms.
 
 ### Speaking
 

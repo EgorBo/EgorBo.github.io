@@ -15,8 +15,8 @@ Micro-optimizations, LLVM, mobile and game development.
 
 <figure class="alignright">2016 - now</figure>
 **Microsoft**  
-**Senior Software Engineer**  
-I work on Mono Runtime, iOS/Android/WebAssembly integrations, optimizations, and I contribute 
+**Senior Software Engineer**
+Worked on Mono Runtime, iOS/Android/WebAssembly integrations, optimizations, and I contribute 
 to both JIT compilers: Mono-LLVM and CoreCLR RyuJIT.  
 Some of my RyuJIT contributions can be found [here](https://twitter.com/EgorBo/status/1283024716647858176).
 
@@ -52,7 +52,7 @@ Boring enterprise stuff: SQL, EF, WCF, DDD, WPF, WinForms.
 
 ### Speaking
 
-DotNetRu 2018, Moscow - [How to contribute to RyuJIT](https://www.youtube.com/watch?v=s-0FXVP9w8w)  
-C++ CoreHard 2019, Minsk - [LLVM tips & tricks for your front-end](https://www.youtube.com/watch?v=sPIcJ7tbggg)  
-DotNext 2019, Moscow - [.NET 5: runtimes](https://www.youtube.com/watch?v=D9gQoU3LkhM)  
-DotNext 2018, Moscow - [Microoptimizations inside .NET Core](https://www.youtube.com/watch?v=n3-j_sTtGb0)  
+DotNext 2020, Moscow - How JIT compiler works
+C++ CoreHard 2019, Minsk - LLVM tips & tricks for your front-end
+DotNext 2019, Moscow - .NET 5: runtimes
+DotNext 2018, Moscow - Microoptimizations inside .NET Core 

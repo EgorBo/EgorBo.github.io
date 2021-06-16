@@ -15,10 +15,9 @@ Micro-optimizations, LLVM, mobile and game development.
 
 <figure class="alignright">2016 - now</figure>
 **Microsoft**  
-**Senior Software Engineer**
-Worked on Mono Runtime, iOS/Android/WebAssembly integrations, optimizations, and I contribute 
-to both JIT compilers: Mono-LLVM and CoreCLR RyuJIT.  
-Some of my RyuJIT contributions can be found [here](https://twitter.com/EgorBo/status/1283024716647858176).
+**Senior Software Engineer**  
+I work on CLR JIT compiler.  
+Previously: Mono Runtime, iOS/Android/WebAssembly integrations and optimizations.
 
 Joined Xamarin in 2015 it was aquired by Microsoft a year after. Worked on [UrhoSharp](https://github.com/xamarin/urho) game engine and Mono BCL.
 

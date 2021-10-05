@@ -4,11 +4,11 @@ title:  "About"
 permalink: "/resume/"
 ---
 **Name:** Egor Bogatov  
-**Age:** 31 yo  
+**Age:** 32 yo  
 **Location:** Minsk, Belarus  
 
 
-I'm a software developer with **12** years of experience in commercial software development.  
+I'm a software developer with **13** years of experience in commercial software development.  
 Micro-optimizations, LLVM, mobile and game development.
 
 ### Experience 
@@ -51,7 +51,7 @@ Boring enterprise stuff: SQL, EF, WCF, DDD, WPF, WinForms.
 
 ### Speaking
 
-DotNext 2020, Moscow - How JIT compiler works
-C++ CoreHard 2019, Minsk - LLVM tips & tricks for your front-end
-DotNext 2019, Moscow - .NET 5: runtimes
-DotNext 2018, Moscow - Microoptimizations inside .NET Core 
+* DotNext 2020, Moscow - How JIT compiler works
+* C++ CoreHard 2019, Minsk - LLVM tips & tricks for your front-end
+* DotNext 2019, Moscow - .NET 5: runtimes
+* DotNext 2018, Moscow - Microoptimizations inside .NET Core 
